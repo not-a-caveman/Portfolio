@@ -49,23 +49,24 @@ roastButton.addEventListener("click", (e) => {
   }
 
   console.log("Roast Button clicked");
+  alert("Plese wait, response will be generated in 15 Seconds. dont click again")
   RoastHisFriend();
 });
 
 function RoastHisFriend() {
   // Function to fetch API data and display it in a div
-  function fetchAndDisplayData() {
     const url = "https://q6ibft.buildship.run/GPT-Chatbot"; // Replace with your API endpoint
     fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
-        image: `${imageUrl}`,
-      },
+      body: JSON.stringify({ image: imageUrl }),
     })
-      .then((response) => response.json()) // Parse JSON from the response
+      .then((response) => {if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text();}) // Use response.text() to get plain text data) // Parse JSON from the response
       .then((data) => {
         responseReceived(data);
         // Display the JSON data in the div
@@ -73,13 +74,11 @@ function RoastHisFriend() {
       .catch((error) => console.error("Error fetching data:", error));
   }
 
-  // Call the function when the page loads or on an event
-  fetchAndDisplayData();
-}
 
 function responseReceived(data) {
   RoastBox.classList.remove("hidden");
-  apiResponseDiv.innerHTML = JSON.stringify(data, null, 2);
+  let cleanData = data.replaceAll(/"/g, '').replaceAll(/\n\n/g, ' ').replace(/^"(.*)"$/, '$1')
+  apiResponseDiv.textContent = JSON.stringify(cleanData, null, 2);
 }
 
 dropArea.addEventListener("dragover", function (e) {
