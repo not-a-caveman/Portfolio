@@ -1,9 +1,12 @@
 const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-file");
 const imgView = document.getElementById("img-view");
+const imageLoader = document.getElementById("Image_loader");
 const roastButton = document.getElementById("Roast-btn");
-const apiResponseDiv = document.getElementById("api-response");
+const btnLoader = document.getElementById("btn-loader");
+const RoastText = document.getElementById("Roast-text");
 const RoastBox = document.getElementById("roast-box");
+const apiResponseDiv = document.getElementById("api-response");
 
 let imageUrl;
 
@@ -11,10 +14,8 @@ inputFile.addEventListener("change", uploadImage);
 
 async function uploadImage() {
   // Converting it into Local URL
-  let imgLink = URL.createObjectURL(inputFile.files[0]);
 
-  // DOM manipulation for showing Image
-  imgView.style.backgroundImage = `url(${imgLink})`;
+  imageLoader.classList.remove("hidden");
   imgView.textContent = "";
   imgView.style.border = 0;
 
@@ -33,7 +34,14 @@ async function uploadImage() {
     .then((data) => {
       console.log(data);
       imageUrl = data.secure_url;
+
       console.log("Public URL: ", imageUrl);
+      imageLoader.classList.add("hidden");
+
+      let imgLink = URL.createObjectURL(inputFile.files[0]);
+
+      // DOM manipulation for showing Image
+      imgView.style.backgroundImage = `url(${imgLink})`;
     })
     .catch((err) => {
       console.log(err);
@@ -42,43 +50,57 @@ async function uploadImage() {
 
 roastButton.addEventListener("click", (e) => {
   e.preventDefault();
+  console.log("Roast Button clicked");
 
   if (!imageUrl) {
     alert("Image is still uploading, please wait.");
     return;
+  } else {
+    RoastHisFriend();
+    btnLoader.classList.remove("hidden");
+    RoastText.classList.add("hidden");
   }
-
-  console.log("Roast Button clicked");
-  alert("Plese wait, response will be generated in 15 Seconds. dont click again")
-  RoastHisFriend();
 });
 
 function RoastHisFriend() {
   // Function to fetch API data and display it in a div
-    const url = "https://q6ibft.buildship.run/GPT-Chatbot"; // Replace with your API endpoint
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ image: imageUrl }),
-    })
-      .then((response) => {if (!response.ok) {
+  const url = "https://q6ibft.buildship.run/GPT-Chatbot"; // Replace with your API endpoint
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ image: imageUrl }),
+  })
+    .then((response) => {
+      if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.text();}) // Use response.text() to get plain text data) // Parse JSON from the response
-      .then((data) => {
-        responseReceived(data);
-        // Display the JSON data in the div
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }
-
+      }
+      return response.text();
+    }) // Use response.text() to get plain text data) // Parse JSON from the response
+    .then((data) => {
+      responseReceived(data);
+      // Display the JSON data in the div
+    })
+    .catch((error) => console.error("Error fetching data:", error))
+    .finally(() => {});
+}
 
 function responseReceived(data) {
+  // Btn Loader
+  btnLoader.classList.add("hidden");
+  RoastText.classList.remove("hidden");
+
   RoastBox.classList.remove("hidden");
-  let cleanData = data.replaceAll(/"/g, '').replaceAll(/\n\n/g, ' ').replace(/^"(.*)"$/, '$1')
-  apiResponseDiv.textContent = JSON.stringify(cleanData, null, 2);
+
+  let cleanData = data
+    .replaceAll(/"/g, " ") // Replace all double quotes
+    .replaceAll(/\n\n/g, " ") // Replace double newlines with a space
+    .replace(/^"(.*)"$/, "$1"); // Remove leading and trailing quotes
+
+  cleanData = cleanData.charAt(0).toUpperCase() + cleanData.slice(1);
+
+  apiResponseDiv.textContent = cleanData;
 }
 
 dropArea.addEventListener("dragover", function (e) {

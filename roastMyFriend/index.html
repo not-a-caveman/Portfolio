@@ -1,71 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>🔥Roast My Friend</title>
+  </head>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-  <title>🔥Roast My Friend</title>
-</head>
-
-<body>
-  <!-- background -->
-  <div
-    class="w-full h-screen bg-fit bg-center bg-cover bg-[url('assests/bg.png')] font-[montserrat] flex justify-start items-center">
-    <!-- Card -->
+  <body>
+    <!-- background -->
     <div
-      class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl p-4 flex gap-4 m-40 justify-center">
-      <!-- Input Box -->
-      <div class="flex flex-col gap-2 w-80">
-        <div class="p-1 flex flex-col gap-1">
-          <h1 class="text-white font-black text-3xl text-center">
-            Roast My Friend
-          </h1>
-          <p class="text-white text-sm px-4 text-center opacity-40">
-            Upload the photo of your friend to roast the hell out of them
-          </p>
+      class="w-full h-screen bg-fit bg-center bg-cover bg-[url('assests/bg.png')] font-[montserrat] flex justify-start items-center"
+    >
+      <!-- Card -->
+      <div
+        class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl p-4 flex gap-4 m-40 justify-center"
+      >
+        <!-- Input Box -->
+        <div class="flex flex-col gap-2 w-80">
+          <div class="p-1 flex flex-col gap-1">
+            <h1 class="text-white font-black text-3xl text-center">
+              Roast My Friend
+            </h1>
+            <p class="text-white text-sm px-4 text-center opacity-40">
+              Upload the photo of your friend to roast the hell out of them
+            </p>
+          </div>
+
+          <!-- Drop Photo -->
+
+          <form id="uploadForm" class="flex flex-col gap-3" action="submit">
+            <div
+              id="Image_loader"
+              class="hidden absolute top-1/2 left-1/2 -translate-x-4 translate-y-2"
+            >
+              <div
+                class="animate-spin rounded-full h-8 w-8 border-t-4 border-white absolute"
+              ></div>
+            </div>
+            <label
+              for="input-file"
+              class="Drop-area bg-white bg-opacity-5 rounded-xl border border-white border-opacity-30 flex flex-col justify-center items-center hover:bg-opacity-10 transition duration-300 h-40 w-full"
+              id="drop-area "
+            >
+              <input
+                type="file"
+                accept="image/*"
+                id="input-file"
+                class="rounded-xl"
+                type="image"
+                src=""
+                alt=""
+                hidden
+              />
+
+              <div
+                id="img-view"
+                class="img-view flex flex-col justify-center items-center h-full w-full text-center text-[10px] p-12 rounded-xl text-white bg-top bg-cover cursor-pointer"
+              >
+                <img src="./assests/drop.png" />
+
+                <span class="mt-2 opacity-65">
+                  Upload any image form desktop</span
+                >
+              </div>
+            </label>
+
+            <button
+              id="Roast-btn"
+              class="w-full py-2 bg-[#C42E0C] text-white font-bold rounded-lg hover:bg-[#FC380D] transition duration-300 flex justify-center items-center gap-2 text-lg cursor-pointer"
+              type="submit"
+            >
+              <div
+                id="btn-loader"
+                class="flex gap-3 font-medium text-md justify-center items-center hidden"
+              >
+                <div
+                  class="animate-spin rounded-full h-6 w-6 border-t-4 border-white"
+                ></div>
+                <p>Please Wait...</p>
+              </div>
+              <p id="Roast-text" class="">🔥 ROAST HIM</p>
+            </button>
+          </form>
         </div>
 
-        <!-- Drop Photo -->
-
-        <form id="uploadForm" class="flex flex-col gap-3" action="submit">
-          <label for="input-file"
-            class="Drop-area bg-white bg-opacity-5 rounded-xl border border-white border-opacity-30 flex flex-col justify-center items-center hover:bg-opacity-10 transition duration-300 h-40"
-            id="drop-area">
-            <input type="file" accept="image/*" id="input-file" class="rounded-xl h-80" type="image" src="" alt=""
-              hidden />
-            <div id="img-view"
-              class="img-view flex flex-col justify-center items-center h-full w-full text-center text-[10px] p-12 rounded-xl text-white bg-center bg-cover">
-              <img class="" src="./assests/drop.png" />
-
-              <span class="mt-2 opacity-65">
-                Upload any image form desktop</span>
-            </div>
-          </label>
-          <button id="Roast-btn"
-            class="w-full py-2 bg-[#C42E0C] text-white font-bold rounded-lg hover:bg-[#FC380D] transition duration-300 flex justify-center items-center gap-2 text-lg"
-            type="submit">
-            🔥 ROAST HIM
-          </button>
-        </form>
-      </div>
-
-      <!-- Roast Box -->
-      <div id="roast-box" class="flex flex-col gap-3 h-[400px] w-[600px] hidden transition duration-800">
-        <h1 class="text-white font-black text-3xl">🔥 ROAST</h1>
+        <!-- Roast Box -->
         <div
-          class="h-full  p-3 text-white text-sm bg-black bg-opacity-50 rounded-xl border border-white border-opacity-30">
-          <p id="api-response"></p>
+          id="roast-box"
+          class="flex flex-col gap-3 w-[600px] hidden transition duration-800"
+        >
+          <h1 class="text-white font-black text-3xl">
+            <span class="animate-pulse">🔥</span> ROAST
+          </h1>
+          <div
+            class="p-3 text-white text-md bg-black bg-opacity-50 rounded-xl border border-white border-opacity-30"
+          >
+            <p id="api-response"></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="./script.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-</body>
-
+    <script src="./script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
 </html>
