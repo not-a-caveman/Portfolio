@@ -1,3 +1,4 @@
+// Cache DOM elements for later use  (Single Responsibility Principle)
 const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-file");
 const imgView = document.getElementById("img-view");
@@ -10,9 +11,15 @@ const apiResponseDiv = document.getElementById("api-response");
 
 let imageUrl;
 
-inputFile.addEventListener("change", uploadImage);
+// Event Listners
+inputFile.addEventListener("change", handleImageUpload); //Line 22
+// roastButton.addEventListener("click", handleRoastButtonClick);
+// dropArea.addEventListener("dragover", handleDrogOver)
+// dropArea.addEventListner("drop", handleDrop);
 
-async function uploadImage() {
+// Function to handle Image upload
+
+async function handleImageUpload() {
   // Converting it into Local URL
 
   imageLoader.classList.remove("hidden");
