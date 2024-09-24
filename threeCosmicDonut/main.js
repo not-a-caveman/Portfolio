@@ -34,10 +34,10 @@ const torus = new THREE.Mesh(geometry, material);
 scene.add(torus);
 
 // Point light
-const pointLight = new THREE.PointLight(0xffffff);
+const pointLight = new THREE.PointLight(0xffffff, 300);
 pointLight.position.set(0, 0, 0);
 
-const ambientLight = new THREE.AmbientLight(0xffffff);
+const ambientLight = new THREE.AmbientLight(0xffffff, 3);
 scene.add(pointLight, ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
