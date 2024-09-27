@@ -13,9 +13,6 @@ let imageUrl;
 
 // Event Listners
 inputFile.addEventListener("change", handleImageUpload); //Line 22
-// roastButton.addEventListener("click", handleRoastButtonClick);
-// dropArea.addEventListener("dragover", handleDrogOver)
-// dropArea.addEventListner("drop", handleDrop);
 
 // Function to handle Image upload
 
@@ -117,5 +114,5 @@ dropArea.addEventListener("dragover", function (e) {
 dropArea.addEventListener("drop", function (e) {
   e.preventDefault();
   inputFile.files = e.dataTransfer.files;
-  uploadImage();
+  handleImageUpload();
 });
