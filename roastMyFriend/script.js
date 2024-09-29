@@ -1,13 +1,23 @@
 // Cache DOM elements for later use  (Single Responsibility Principle)
+
+// Image Area Dom elements
 const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-file");
 const imgView = document.getElementById("img-view");
 const imageLoader = document.getElementById("Image_loader");
+
+// Roast Button Dom elements
 const roastButton = document.getElementById("Roast-btn");
 const btnLoader = document.getElementById("btn-loader");
+
+// Roast Text Dom elements
 const RoastText = document.getElementById("Roast-text");
 const RoastBox = document.getElementById("roast-box");
 const apiResponseDiv = document.getElementById("api-response");
+
+// Roast Button
+const languageSwitchToggle = document.getElementById("language-switch");
+const langSwitchText = document.getElementById("language-switch-text");
 
 let imageUrl;
 
@@ -27,11 +37,11 @@ async function handleImageUpload() {
   const file = inputFile.files[0];
 
   // Supports only image files
-  if(!file.type.startsWith("image/")){
-      alert("Please upload image only.");
-      return;
+  if (!file.type.startsWith("image/")) {
+    alert("Please upload image only.");
+    return;
   }
-  
+
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", "RoastMyFriend");
@@ -76,12 +86,13 @@ roastButton.addEventListener("click", (e) => {
 function RoastHisFriend() {
   // Function to fetch API data and display it in a div
   const url = "https://q6ibft.buildship.run/GPT-Chatbot"; // Replace with your API endpoint
+  const checked = languageSwitchToggle.checked;
   fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ image: imageUrl }),
+    body: JSON.stringify({ image: imageUrl, roastInHinglish: checked }),
   })
     .then((response) => {
       if (!response.ok) {
@@ -114,12 +125,24 @@ function responseReceived(data) {
   apiResponseDiv.textContent = cleanData;
 }
 
-dropArea.addEventListener("dragover", function (e) {
-  e.preventDefault();
-});
+// dropArea.addEventListener("dragover", function (e) {
+//   e.preventDefault();
+// });
 
-dropArea.addEventListener("drop", function (e) {
-  e.preventDefault();
-  inputFile.files = e.dataTransfer.files;
-  handleImageUpload();
-});
+// dropArea.addEventListener("drop", function (e) {
+//   e.preventDefault();
+//   inputFile.files = e.dataTransfer.files;
+//   handleImageUpload();
+// });
+
+// Get the toggle elements
+
+
+languageSwitchToggle.addEventListener("change", changeToggleDot);
+
+function changeToggleDot() {
+  if(languageSwitchToggle.checked)
+    langSwitchText.innerText = "Roast in Hinglish";
+  else
+    langSwitchText.innerText = "Roast in English"
+}
