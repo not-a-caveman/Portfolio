@@ -22,13 +22,13 @@
     <style>
       input:checked ~ .dot {
         transform: translateX(100%);
-        background-color: #48bb78;
+        background-color: #fff;
       }
-      
+
       /* Toggle B */
       input:checked ~ .dot {
         transform: translateX(100%);
-        background-color: #48bb78;
+        background-color: #c42e0c;
       }
     </style>
   </head>
@@ -93,27 +93,28 @@
 
             <!-- Toggle Switch for English and Hinglish -->
 
-            <div class="flex items-center justify-start gap-2 text-white">
-              <div class="flex items-center justify-center w-full mb-12">
-  
-              <label for="language-switch" class="flex items-center cursor-pointer">
-                <!-- toggle -->
-                <div class="relative">
-                  <!-- input -->
-                  <input type="checkbox" class="sr-only" id="language-switch">
-                  <!-- line -->
-                  <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                  <!-- dot -->
-                  <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-                </div>
-                <!-- label -->
-                <div class="ml-3 text-gray-700 font-medium">
-                  <span  id="language-switch-text"> Roast in English</span>
-                </div>
-              </label>
-            
-            </div>
-            </div>
+            <label
+              for="language-switch"
+              class="flex items-center cursor-pointer"
+            >
+              <!-- toggle -->
+              <div class="relative">
+                <!-- input -->
+                <input type="checkbox" class="sr-only" id="language-switch" />
+                <!-- line -->
+                <div
+                  class="block bg-white bg-opacity-5 w-14 h-8 rounded-full"
+                ></div>
+                <!-- dot -->
+                <div
+                  class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"
+                ></div>
+              </div>
+              <!-- label -->
+              <div class="ml-3 text-white font-medium">
+                <span id="language-switch-text"> Roast in English</span>
+              </div>
+            </label>
 
             <button
               id="Roast-btn"
