@@ -25,6 +25,13 @@ async function handleImageUpload() {
 
   // Puting Data in formData
   const file = inputFile.files[0];
+
+  // Supports only image files
+  if(!file.type.startsWith("image/")){
+      alert("Please upload image only.");
+      return;
+  }
+  
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", "RoastMyFriend");
