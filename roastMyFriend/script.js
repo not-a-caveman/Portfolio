@@ -137,12 +137,10 @@ function responseReceived(data) {
 
 // Get the toggle elements
 
-
 languageSwitchToggle.addEventListener("change", changeToggleDot);
 
 function changeToggleDot() {
-  if(languageSwitchToggle.checked)
+  if (languageSwitchToggle.checked)
     langSwitchText.innerText = "Roast in Hinglish";
-  else
-    langSwitchText.innerText = "Roast in English"
+  else langSwitchText.innerText = "Roast in English";
 }
