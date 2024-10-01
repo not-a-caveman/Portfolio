@@ -53,10 +53,10 @@ async function handleImageUpload() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       imageUrl = data.secure_url;
 
-      console.log("Public URL: ", imageUrl);
+      // console.log("Public URL: ", imageUrl);
       imageLoader.classList.add("hidden");
 
       let imgLink = URL.createObjectURL(inputFile.files[0]);
