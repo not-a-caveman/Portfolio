@@ -91,6 +91,20 @@ body {
   justify-content: center;
 }
 
+/* Styling for the badge */
+.badge {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 80%;
+  font-weight: semi-bold;
+}
+
 #navbar li {
   list-style: none;
   padding: 0 20px;
@@ -746,8 +760,8 @@ footer .copyright {
   width: 40%;
 }
 
-#contact-details .details span ,
-#form-details form span{
+#contact-details .details span,
+#form-details form span {
   font-size: 12px;
 }
 
@@ -779,13 +793,12 @@ footer .copyright {
   font-size: 14px;
 }
 
-
-#contact-details .map{
+#contact-details .map {
   width: 55%;
   height: 400px;
 }
 
-#contact-details .map iframe{
+#contact-details .map iframe {
   width: 100%;
   height: 100%;
 }
@@ -798,7 +811,7 @@ footer .copyright {
   border: 1px solid #e1e1e1;
 }
 
-#form-details form{
+#form-details form {
   width: 65%;
   display: flex;
   flex-direction: column;
@@ -806,7 +819,7 @@ footer .copyright {
 }
 
 #form-details form input,
-#form-details form textarea{ 
+#form-details form textarea {
   width: 100%;
   padding: 12px 15px;
   outline: none;
@@ -814,117 +827,115 @@ footer .copyright {
   border: 1px solid #e1e1e1;
 }
 
-#form-details form button{
+#form-details form button {
   color: #fff;
   background-color: #088178;
 }
 
-#form-details .people div{
+#form-details .people div {
   padding-bottom: 25px;
   display: flex;
   align-items: flex-start;
 }
 
-#form-details .people div img{
+#form-details .people div img {
   width: 65px;
   height: 65px;
   object-fit: cover;
   margin-right: 15px;
 }
 
-#form-details .people div p{
+#form-details .people div p {
   margin: 0;
   font-size: 13px;
   line-height: 25px;
 }
 
-#form-details .people div p span{
+#form-details .people div p span {
   display: block;
   font-size: 16px;
   font-weight: 600;
   color: #000;
 }
 
-
 /*-------------Cart_Page-------------*/
-#cart{
+#cart {
   overflow-x: auto;
 }
-#cart table{
+#cart table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
   white-space: nowrap;
 }
 
-#cart table img{
+#cart table img {
   width: 70px;
 }
 
-#cart table td:nth-child(1){
+#cart table td:nth-child(1) {
   width: 100px;
   text-align: center;
 }
 
-#cart table td:nth-child(2){
+#cart table td:nth-child(2) {
   width: 150px;
   text-align: center;
 }
-#cart table td:nth-child(3){
+#cart table td:nth-child(3) {
   width: 250px;
   text-align: center;
 }
 #cart table td:nth-child(4),
 #cart table td:nth-child(5),
-#cart table td:nth-child(6){
+#cart table td:nth-child(6) {
   width: 150px;
   text-align: center;
 }
 
-#cart table td:nth-child(5) input{
+#cart table td:nth-child(5) input {
   width: 70px;
   padding: 10px 5px 10px 15px;
 }
 
-#cart table thead{
+#cart table thead {
   border: 1px solid #e2e9e1;
   border-left: none;
   border-right: none;
 }
 
-#cart table thead td{
+#cart table thead td {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 13px;
   padding: 18px 0;
 }
 
-#cart table tbody tr td{
+#cart table tbody tr td {
   padding-top: 15px;
 }
 
-#cart table tbody td{
+#cart table tbody td {
   font-size: 13px;
 }
 
-
-#cart-add{
+#cart-add {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-#coupon{
+#coupon {
   width: 50%;
   margin-bottom: 30px;
 }
 
 #coupon h3,
-#subtotal h3{
+#subtotal h3 {
   padding-bottom: 15px;
 }
 
-#coupon input{
+#coupon input {
   padding: 10px 20px;
   outline: none;
   width: 60%;
@@ -932,35 +943,41 @@ footer .copyright {
   border: 1px solid #e2e9e1;
 }
 
-#coupon button,
-#subtotal button{
+#coupon a,
+#subtotal a {
   background-color: #088178;
   color: #fff;
   padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-#subtotal{
+#subtotal {
   width: 50%;
   margin-bottom: 30px;
   border: 1px solid #e2e9e1;
   padding: 30px;
 }
 
-#subtotal table{
+#subtotal table {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 20px;
 }
 
-#subtotal table td{
+#subtotal table td {
   width: 50%;
   border: 1px solid #e2e9e1;
   padding: 10px;
   font-size: 13px;
 }
 
-#subtotal button{
+#subtotal button {
+}
 
+/* -----------------Login Page ----------------- */
+
+.login-card {
 }
 
 /*------------------Media Query------------------*/
@@ -1061,16 +1078,14 @@ footer .copyright {
 
   /* -------Contact-page------- */
 
-#form-details {
+  #form-details {
     padding: 40px;
-}
+  }
 
-#form-details form {
-  width: 50%;
+  #form-details form {
+    width: 50%;
+  }
 }
-}
-
-
 
 @media (max-width: 477px) {
   .section-p1 {
@@ -1127,7 +1142,6 @@ footer .copyright {
     width: 100%;
   }
 
-  
   #newsletter {
     padding: 40px 20px;
   }
@@ -1198,40 +1212,40 @@ footer .copyright {
 
   /*------Contact-Page------*/
 
-#contact-details {
+  #contact-details {
     flex-direction: column;
-}
+  }
 
-#contact-details .details {
-  width: 100%;
-  margin-bottom: 30px;
-}
+  #contact-details .details {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
-#contact-details .map {
-  width: 100%;
-}
-#form-details {
-  margin: 10px;
-  padding: 30px 10px;
-  flex-wrap: wrap;
-}
+  #contact-details .map {
+    width: 100%;
+  }
+  #form-details {
+    margin: 10px;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+  }
 
-#form-details form{
-  width: 100%;
-  margin-bottom: 30px;
-}
+  #form-details form {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
-/* ---------Cart-page------- */
+  /* ---------Cart-page------- */
 
-#cart-add{
-  flex-direction: column;
-}
+  #cart-add {
+    flex-direction: column;
+  }
 
-#coupon{
-  width: 100%;
-}
-#subtotal{
-  width: 100%;
-  padding: 20px;
-}
+  #coupon {
+    width: 100%;
+  }
+  #subtotal {
+    width: 100%;
+    padding: 20px;
+  }
 }
