@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "outline", sans-serif;
+    text-align: center;
 }
 
 
@@ -38,6 +39,4 @@
     line-height: 140%;
 }
 
-.card p{
-    
-}
+.card p {}
