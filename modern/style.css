@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "General Sans";
+  font-family: 'General Sans', sans-serif;
 }
 
 html,
@@ -217,6 +217,7 @@ body {
   line-height: 180%;
   font-size: 18px;
 }
+
 .description h4 {
   padding-bottom: 2px;
   font-size: 14px;
@@ -232,14 +233,17 @@ body {
   border-radius: 30px;
   padding: 8px 16px;
 }
+
 .about .bottom {
   height: 20%;
   text-transform: uppercase;
 }
+
 .about .bottom h5 {
   padding-bottom: 0.5vw;
   opacity: 0.8;
 }
+
 .about .link {
   display: flex;
   align-items: center;
