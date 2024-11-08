@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "outline", sans-serif;
+}
+
+
+
+.section {
+
+    background-color: #D5E1EF;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #fff;
+    width: 20rem;
+    height: 32rem;
+    padding: 16px 16px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+
+.card img {}
+
+.card h1 {
+    color: #1F314F;
+    text-align: center;
+    font-size: 22px;
+    line-height: 140%;
+}
+
+.card p{
+    
+}
