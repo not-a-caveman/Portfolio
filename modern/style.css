@@ -65,11 +65,12 @@ body {
 .heading h1 {
   margin-left: 2vw;
   line-height: 1;
-  font-family: "General Sans Medium";
+  font-family: "General Sans";
+
   font-size: 10.5vw;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 600;
   opacity: 0.7;
 }
 
