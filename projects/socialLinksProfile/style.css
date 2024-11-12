@@ -27,7 +27,10 @@
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+
 }
+
+
 
 
 .card-title {
@@ -76,5 +79,12 @@
     color: #FFFFFF;
     border-radius: 8px;
     border: none;
+    transition-duration: 200ms;
+
+}
+
+.link-btn:hover {
+    background-color: #C4F82A;
+    color: #333333;
 
 }
