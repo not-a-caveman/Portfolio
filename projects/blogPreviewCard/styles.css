@@ -25,7 +25,7 @@
     align-items: left;
     gap: 20px;
     padding: 24px;
-    box-shadow: 10px 10px;
+    box-shadow: 8px 8px;
     border: 1px solid black;
 
 }
@@ -67,10 +67,10 @@
     font-size: 24px;
     font-weight: 800;
     transition-duration: 150ms;
-    tran
+
 }
 
-.card-heading:hover {
+.card:hover .card-heading {
     color: #F4D04E;
     cursor: pointer;
 }
