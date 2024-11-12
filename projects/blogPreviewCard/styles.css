@@ -66,12 +66,21 @@
 .card-heading {
     font-size: 24px;
     font-weight: 800;
-
-
-
-
-
+    transition-duration: 150ms;
+    tran
 }
+
+.card-heading:hover {
+    color: #F4D04E;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 
 .card-para {
     font-size: 16px;
